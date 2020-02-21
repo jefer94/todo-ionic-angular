@@ -1,0 +1,50 @@
+<form>
+  <ion-item *ngFor="let field of model.fields" [ngSwitch]="field.type">
+    <ion-label position="{{field.type !== 'checkbox' ? model.position : ''}}" *ngIf="field.label">{{field.label}}</ion-label>
+
+    <ion-input
+      *ngSwitchCase="'input'"
+      [readonly]="field.disabled"
+      [name]="field.name"
+      ionChange="a($event)"
+      [(ngModel)]="store[field.name]"
+      clearInput
+      placeholder="{{field.placeholder}}">
+    </ion-input>
+
+    <ion-checkbox
+      *ngSwitchCase="'checkbox'"
+      color="tertiary"
+      mode="ios"
+      role="checkbox"
+      [disabled]="field.disabled"
+      [name]="field.name"
+      slot="start"
+      [(ngModel)]="store[field.name]">
+    </ion-checkbox>
+
+    <ion-datetime
+      *ngSwitchCase="'datetime'"
+      [readonly]="field.disabled"
+      [name]="field.name"
+      [(ngModel)]="store[field.name]"
+      [displayFormat]="lang.formatDatetime"
+      clearInput
+      placeholder="{{field.placeholder}}">
+    </ion-datetime>
+
+    <ion-select
+      *ngSwitchCase="'select'"
+      readonly="field.disabled"
+      [name]="field.name"
+      [(ngModel)]="store[field.name]"
+      clearInput
+      placeholder="{{field.placeholder}}"
+      okText="{{lang['accept']}}"
+      cancelText="{{lang['cancel']}}">
+      <ion-select-option value="{{option.value}}" *ngFor="let option of field.options">{{option.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ng-content></ng-content>
+</form>

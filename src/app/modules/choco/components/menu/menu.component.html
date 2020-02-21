@@ -1,0 +1,30 @@
+<ion-menu side="start" id="first" contentId="content-menu">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>{{lang.menu}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list *ngFor="let item of items">
+      <a [routerLink]="[item.url]">
+        <ion-item>{{item.name}}</ion-item>
+      </a>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  <ion-title>{{lang.list}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-router-outlet id="content-menu" class="content" main>
+  <ng-content></ng-content>
+</ion-router-outlet>

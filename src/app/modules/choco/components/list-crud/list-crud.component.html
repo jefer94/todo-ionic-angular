@@ -1,0 +1,12 @@
+<ion-item>
+  <ion-label position="floating">{{lang.new}}</ion-label>
+  <ion-input (change)="change($event)"></ion-input>
+</ion-item>
+<ion-button expand="block" (click)="add()">{{lang.add}}</ion-button>
+
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    <ion-label>{{item.label}}</ion-label>
+    <ion-badge slot="end" color="danger" (click)="removeFromCache(item.id)">{{lang.remove}}</ion-badge>
+  </ion-item>
+</ion-list>
