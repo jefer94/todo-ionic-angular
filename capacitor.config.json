@@ -1,0 +1,8 @@
+{
+  "appId": "com.choco.todo.ionic.angular",
+  "appName": "TodoIonicAngular",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "www",
+  "cordova": {}
+}

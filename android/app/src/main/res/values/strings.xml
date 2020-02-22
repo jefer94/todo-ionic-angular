@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TodoIonicAngular</string>
+    <string name="title_activity_main">TodoIonicAngular</string>
+    <string name="package_name">com.choco.todo.ionic.angular</string>
+    <string name="custom_url_scheme">com.choco.todo.ionic.angular</string>
+</resources>

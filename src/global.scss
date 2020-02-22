@@ -24,3 +24,17 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+::-webkit-scrollbar {
+	width: 6px!important;
+	height: 6px!important;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(var(--ion-color-dark-rgb), .4);
+	border-radius: 3px!important;
+}
+
+/* ::-webkit-scrollbar-track {
+	background: hsla(0,0%,100%,.08);
+} */

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LangService } from '../../services/lang.service';
 import { AlertService } from '../../services/alert.service';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'choco-list-crud',
@@ -11,48 +12,30 @@ export class ListCrudComponent implements OnInit {
 
   constructor(
     private lang: LangService,
-    private alert: AlertService
+    private alert: AlertService,
+    private todo: TodoService
   ) { }
 
   ngOnInit() {}
 
-  items = []
+  items = [];
 
   autoIncrementToDoId = 0;
-  listEvent = true;
   input = '';
   path = '';
 
-  addFromCache(id, label) {
-    this.items = [].concat(this.items, this.addToDoItem(id, label));
-    console.log(this.items);
-    this.listEvent = true;
-    this.alert.show(this.lang.createMessage, 'success');
-  }
-
-  removeFromCache(id) {
-    this.items = this.items.filter(v => v.id !== id);
-    this.listEvent = true;
+  remove(id) {
+    this.todo.remove(id);
     this.alert.show(this.lang.removeMessage, 'danger');
-  }
-  
-  incrementToDoId() {
-    return ++this.autoIncrementToDoId;
-  }
-
-  addToDoItem(id, label) {
-    return {id, label}
   }
 
   change(v) {
-    this.input = v.target.value
+    this.input = v.target.value;
   }
 
   add() {
-    this.addFromCache(this.incrementToDoId(), this.input)
-  }
-
-  remove(id) {
-    () => this.removeFromCache(id)
+    this.todo.add(this.input);
+    this.input = '';
+    this.alert.show(this.lang.createMessage, 'success');
   }
 }
