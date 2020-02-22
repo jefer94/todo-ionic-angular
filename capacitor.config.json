@@ -1,6 +1,6 @@
 {
   "appId": "com.choco.todo.ionic.angular",
-  "appName": "TodoIonicAngular",
+  "appName": "Todo Ionic Angular",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "www",
